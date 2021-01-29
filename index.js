@@ -64,17 +64,17 @@ const zooAnimals = [
   */
 
  function animalNames(zooAnimals){
-  let displayNames = [];
-  let a = zooAnimals.map(function (b) {
+  let displayNames = []; // empty array
+  let a = zooAnimals.map(function (b) { //first map retrieves animal names
     return b.animal_name;
   });
-  let c = zooAnimals.map(function (d) {
+  let c = zooAnimals.map(function (d) { // retrieves scientific names
     return d.scientific_name;
   });
-  for (let i in a) {
-  displayNames.push(`name: ${a[i]}, scientific: ${c[i]}`)
+  for (let i in a) { // loop through
+  displayNames.push(`name: ${a[i]}, scientific: ${c[i]}`) // push the names into the array via string
   }
-  return displayNames;
+  return displayNames; // return array
 }
   
 
@@ -85,7 +85,7 @@ const zooAnimals = [
   */
 
   function lowerCaseNames(zooAnimals){
-    let a = zooAnimals.map(function (b) {
+    let a = zooAnimals.map(function (b) { // .map iterates through the array, retrieves all values with the animal_name key and then modifies them with the .toLowerCase method
       return b.animal_name.toLowerCase();
     })
     return a;
@@ -98,7 +98,7 @@ const zooAnimals = [
   */
 
   function lowPopulationAnimals(zooAnimals){
-    let a = zooAnimals.filter(b => b.population < 5);
+    let a = zooAnimals.filter(b => b.population < 5); 
     return a;
   }
   
@@ -110,8 +110,8 @@ const zooAnimals = [
   */
 
   function USApop(zooAnimals){
-    let a = zooAnimals.map(b => b.population);
-    let c = a.reduce((acc, curr) => {
+    let a = zooAnimals.map(b => b.population); // .map retriees only the population values and puts them in an array
+    let c = a.reduce((acc, curr) => { // .reduce acts on the .map array we have already done. this adds all the values together
       return acc + curr;
     })
     return c;
