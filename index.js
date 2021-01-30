@@ -64,15 +64,17 @@ const zooAnimals = [
   */
 
  function animalNames(zooAnimals){
+  let f = [];
+  let g = [];
   let displayNames = []; // empty array
-  let a = zooAnimals.map(function (b) { //first map retrieves animal names
-    return b.animal_name;
+  let a = zooAnimals.forEach(function (b) { //first map retrieves animal names
+    f.push(b.animal_name);
   });
-  let c = zooAnimals.map(function (d) { // retrieves scientific names
-    return d.scientific_name;
+  let c = zooAnimals.forEach(function (d) { // retrieves scientific names
+    g.push(d.scientific_name);
   });
-  for (let i in a) { // loop through
-  displayNames.push(`name: ${a[i]}, scientific: ${c[i]}`) // push the names into the array via string
+  for (let i in f) { // loop through
+  displayNames.push(`name: ${f[i]}, scientific: ${g[i]}`) // push the names into the array via string
   }
   return displayNames; // return array
 }
